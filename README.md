@@ -1,123 +1,39 @@
-# 🎓 Course Catalog Management System
+# Course Catalog Management System
 
-A full-stack Course Catalog Management System built using **ASP.NET Core Web API (.NET 10)** and **Angular 20** following **Clean Architecture** principles.
+A full-stack Course Catalog Management System developed using **ASP.NET Core Web API (.NET 10)** and **Angular 20**. The application follows **Clean Architecture** principles and provides role-based access for administrators, instructors, and students.
 
-The application supports three different user roles:
+## Features
 
-- 👨‍💼 Admin
-- 👨‍🏫 Instructor
-- 👨‍🎓 Student
+### Authentication
+- JWT-based authentication
+- Role-based authorization
+- Secure login and registration
+- Protected API endpoints
 
-Each role has its own dashboard and features.
-
----
-
-# 🚀 Features
-
-## 🔐 Authentication & Authorization
-
-- JWT Authentication
-- Role-Based Authorization
-- Secure Login & Registration
-- Password Hashing
-- Protected API Endpoints
-
----
-
-## 👨‍💼 Admin
-
-- Dashboard
+### Admin
+- Dashboard with application statistics
 - View all users
-- Create Instructor accounts
-- View statistics
-  - Total Users
-  - Total Students
-  - Total Instructors
-  - Total Courses
-  - Total Enrollments
+- Create instructor accounts
+
+### Instructor
+- Dashboard with course analytics
+- Create, update and delete courses
+- View assigned courses
+- View enrolled students for each course
+
+### Student
+- Browse available courses
+- Enroll in courses
+- Drop enrolled courses
+- Re-enroll in previously dropped courses
+- View enrolled courses
+- Dashboard with enrollment statistics
 
 ---
 
-## 👨‍🏫 Instructor
+## Technology Stack
 
-- Dashboard
-- Create Courses
-- Edit Courses
-- Delete Courses
-- View Own Courses
-- View Students Enrolled in each Course
-- Dashboard Statistics
-  - My Courses
-  - Total Students
-  - Total Enrollments
-
----
-
-## 👨‍🎓 Student
-
-- Dashboard
-- Browse Available Courses
-- Search Courses
-- Enroll in Courses
-- Drop Courses
-- Re-enroll into Dropped Courses
-- View My Enrollments
-- Dashboard Statistics
-  - Enrolled Courses
-  - Available Courses
-
----
-
-# 🏗️ Architecture
-
-Backend follows **Clean Architecture**
-
-```
-CourseCatalogAPI
-│
-├── API
-├── Application
-├── Domain
-└── Infrastructure
-```
-
-### Layers
-
-### API
-
-- Controllers
-- Middleware
-- Authentication
-- Dependency Injection
-
-### Application
-
-- DTOs
-- Services
-- Interfaces
-- Validators
-- AutoMapper Profiles
-- Business Logic
-
-### Domain
-
-- Entities
-- Enums
-- Base Classes
-
-### Infrastructure
-
-- EF Core
-- Repositories
-- Database Context
-- Migrations
-- Seed Data
-
----
-
-# 🛠 Tech Stack
-
-## Backend
+### Backend
 
 - ASP.NET Core Web API (.NET 10)
 - Entity Framework Core
@@ -126,34 +42,23 @@ CourseCatalogAPI
 - AutoMapper
 - FluentValidation
 
----
-
-## Frontend
+### Frontend
 
 - Angular 20
 - Angular Material
 - Tailwind CSS
 - RxJS
-- Signals
+- Angular Signals
 - Standalone Components
 
 ---
 
-## Database
-
-- SQL Server
-
----
-
-# 📂 Project Structure
+## Project Structure
 
 ```
 course-catalog-management-system
 │
 ├── CourseCatalogAPI
-│
-│   ├── src
-│   │
 │   ├── CourseCatalog.API
 │   ├── CourseCatalog.Application
 │   ├── CourseCatalog.Domain
@@ -164,72 +69,61 @@ course-catalog-management-system
 
 ---
 
-# 📸 Application Screens
+## Architecture
 
-## Login
+The backend is implemented using Clean Architecture.
 
-- Secure JWT Login
+```
+Presentation (API)
+        │
+Application Layer
+        │
+Domain Layer
+        │
+Infrastructure Layer
+```
 
-## Register
-
-- Student Registration
-
-## Admin Dashboard
-
-- Statistics Cards
-- User Management
-- Create Instructor
-
-## Instructor Dashboard
-
-- Dashboard Statistics
-- My Courses
-- Course Management
-- Student List
-
-## Student Dashboard
-
-- Dashboard Statistics
-- Browse Courses
-- Enrollments
+The application separates business logic from data access, making it easier to maintain, test, and extend.
 
 ---
 
-# ⚙️ Backend Setup
+## Getting Started
 
-## Clone Repository
+### Clone the repository
 
 ```bash
 git clone https://github.com/YOUR_USERNAME/course-catalog-management-system.git
 ```
 
-Go to backend
+---
+
+## Backend
+
+Navigate to the backend project.
 
 ```bash
 cd CourseCatalogAPI
 ```
 
-Restore packages
+Restore packages.
 
 ```bash
 dotnet restore
 ```
 
-Update Database
+Apply database migrations.
 
 ```bash
-dotnet ef database update \
---project src/CourseCatalog.Infrastructure \
---startup-project src/CourseCatalog.API
+dotnet ef database update --project src/CourseCatalog.Infrastructure --startup-project src/CourseCatalog.API
 ```
 
-Run API
+Run the API.
 
 ```bash
 dotnet run --project src/CourseCatalog.API
 ```
 
-Swagger
+Swagger will be available at
 
 ```
 https://localhost:7247/swagger
@@ -237,27 +131,27 @@ https://localhost:7247/swagger
 
 ---
 
-# ⚙️ Frontend Setup
+## Frontend
 
-Go to frontend
+Navigate to the Angular project.
 
 ```bash
 cd course-catalog-ui
 ```
 
-Install packages
+Install dependencies.
 
 ```bash
 npm install
 ```
 
-Run Angular
+Run the application.
 
 ```bash
 ng serve
 ```
 
-Application
+The application will be available at
 
 ```
 http://localhost:4200
@@ -265,100 +159,73 @@ http://localhost:4200
 
 ---
 
-# 🔑 Default Accounts
+## Application Modules
 
-## Admin
+### Admin
 
-```
-Email:
-admin@coursecatalog.com
+- Dashboard
+- User Management
+- Create Instructor
 
-Password:
-Admin@123
-```
+### Instructor
 
----
+- Dashboard
+- Course Management
+- Student Management
 
-## Student
+### Student
 
-Register a new student using the Registration page.
-
----
-
-## Instructor
-
-Create an instructor using the Admin dashboard.
+- Dashboard
+- Browse Courses
+- Enrollment Management
 
 ---
 
-# 🧩 Key Functionalities
+## Database
 
+SQL Server is used as the primary database.
+
+Main entities include:
+
+- Users
+- Courses
+- Enrollments
+
+---
+
+## Key Concepts Demonstrated
+
+- Clean Architecture
+- Repository Pattern
+- Dependency Injection
 - JWT Authentication
 - Role-Based Authorization
-- Clean Architecture
-- Repository Pattern
-- Dependency Injection
-- Fluent Validation
-- AutoMapper
-- Global Exception Middleware
-- CRUD Operations
-- Dashboard Analytics
-- Course Search
-- Enrollment Management
-- Soft Delete Enrollment
-- Re-enrollment Support
-
----
-
-# 📚 Learning Outcomes
-
-This project demonstrates:
-
-- Clean Architecture
-- ASP.NET Core Web API
-- Angular Standalone Components
 - Entity Framework Core
-- SQL Server
-- JWT Authentication
-- Repository Pattern
-- Dependency Injection
-- AutoMapper
-- Fluent Validation
+- RESTful API Design
+- Angular Standalone Components
 - Angular Signals
-- Angular Material
-- Tailwind CSS
-- REST APIs
+- Reactive Forms
+- Global Exception Handling
 
 ---
 
-# 📈 Future Improvements
+## Future Enhancements
 
-- Email Notifications
-- Course Images
-- Pagination
-- File Uploads
-- Course Reviews
-- Certificates
-- Attendance Tracking
-- Unit Testing
-- Docker Support
-- Azure Deployment
-- CI/CD Pipeline
+- Email notifications
+- Pagination and filtering
+- Docker support
+- Azure deployment
+- Unit and integration testing
+- CI/CD pipeline
+- Course image upload
+- Student certificates
 
 ---
 
-# 👨‍💻 Author
+
+## Author
 
 **Rushikesh Kanapuram**
 
-GitHub:
-https://github.com/Rushikeshkanapuram
+GitHub: https://github.com/Rushikeshkanapuram
 
-LinkedIn:
-(Add your LinkedIn profile)
-
----
-
-# ⭐ If you like this project
-
-Please consider giving it a ⭐ on GitHub.

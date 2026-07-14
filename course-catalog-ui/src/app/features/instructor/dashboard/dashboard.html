@@ -1,0 +1,52 @@
+<div class="space-y-8">
+
+    <div>
+
+        <h1 class="text-3xl font-bold text-slate-800">
+
+            Instructor Dashboard
+
+        </h1>
+
+        <p class="mt-2 text-slate-500">
+
+            Overview of your courses and students.
+
+        </p>
+
+    </div>
+
+    @if (dashboard(); as data) {
+
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <app-stat-card
+            title="My Courses"
+            [value]="data.myCourses"
+            icon="menu_book">
+        </app-stat-card>
+
+        <app-stat-card
+            title="Students"
+            [value]="data.totalStudents"
+            icon="groups">
+        </app-stat-card>
+
+        <app-stat-card
+            title="Enrollments"
+            [value]="data.totalEnrollments"
+            icon="assignment">
+        </app-stat-card>
+
+    </div>
+
+    } @else {
+
+    <div class="rounded-xl bg-white p-8 text-center shadow">
+
+        Loading dashboard...
+
+    </div>
+
+    }
+
+</div>

@@ -1,0 +1,119 @@
+<div class="min-h-screen flex bg-slate-100">
+
+    <!-- Left -->
+
+    <div
+        class="hidden lg:flex flex-1 bg-gradient-to-br from-indigo-700 via-indigo-600 to-violet-600 items-center justify-center">
+
+        <div class="max-w-md">
+
+            <app-logo></app-logo>
+
+          <p class="mt-10 text-lg font-normal text-center text-indigo-100 leading-8 max-w-md">
+    Start your learning journey today.
+</p>
+
+        </div>
+
+    </div>
+
+    <!-- Right -->
+
+    <div
+        class="flex-1 flex items-center justify-center px-6">
+
+        <mat-card
+            class="w-full max-w-md rounded-3xl shadow-2xl p-10">
+
+            <h2
+                class="text-4xl font-bold text-slate-800">
+
+                Create Account
+
+            </h2>
+
+            <p
+                class="text-slate-500 mt-2">
+
+                Register as a Student
+
+            </p>
+
+            <form
+    [formGroup]="registerForm"
+    (ngSubmit)="register()"
+    class="mt-8 flex flex-col gap-5">
+
+                <mat-form-field appearance="outline">
+
+                    <mat-label>First Name</mat-label>
+
+                    <input
+                        matInput
+                        formControlName="firstName">
+
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+
+                    <mat-label>Last Name</mat-label>
+
+                    <input
+                        matInput
+                        formControlName="lastName">
+
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+
+                    <mat-label>Email</mat-label>
+
+                    <input
+                        matInput
+                        formControlName="email">
+
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+
+                    <mat-label>Password</mat-label>
+
+                    <input
+                        matInput
+                        type="password"
+                        formControlName="password">
+
+                </mat-form-field>
+
+               <button
+    type="submit"
+    mat-flat-button
+    color="primary"
+    class="h-12"
+    [disabled]="registerForm.invalid">
+
+    Create Account
+
+</button>
+
+            </form>
+
+            <p class="text-center mt-8">
+
+                Already have an account?
+
+                <a
+                    routerLink="/login"
+                    class="font-semibold text-indigo-600 hover:text-indigo-800">
+
+                    Login
+
+                </a>
+
+            </p>
+
+        </mat-card>
+
+    </div>
+
+</div>

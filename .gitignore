@@ -1,0 +1,32 @@
+# Visual Studio
+.vs/
+**/.vs/
+
+# Build output
+bin/
+obj/
+**/bin/
+**/obj/
+
+# Angular
+node_modules/
+.angular/
+dist/
+**/node_modules/
+**/.angular/
+**/dist/
+
+# VS Code
+.vscode/
+**/.vscode/
+
+# User files
+*.user
+*.suo
+
+# Logs
+*.log
+
+# OS
+Thumbs.db
+.DS_Store

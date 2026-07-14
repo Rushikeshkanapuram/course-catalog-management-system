@@ -1,0 +1,152 @@
+<div class="space-y-8">
+
+    <!-- Header -->
+
+    <div class="flex items-center justify-between">
+
+        <div>
+
+            <h1 class="text-3xl font-bold text-slate-800">
+
+                My Courses
+
+            </h1>
+
+            <p class="mt-2 text-slate-500">
+
+                Manage all your courses.
+
+            </p>
+
+        </div>
+
+        <button
+            (click)="createCourse()"
+            class="rounded-xl bg-indigo-600 px-6 py-3 font-medium text-white hover:bg-indigo-700 transition">
+
+            + Create Course
+
+        </button>
+
+    </div>
+
+    <!-- Loading -->
+
+    @if(isLoading()) {
+
+        <div class="rounded-xl bg-white p-8 shadow">
+
+            Loading courses...
+
+        </div>
+
+    }
+
+    <!-- Empty State -->
+
+    @else if(courses().length === 0) {
+
+        <div class="rounded-xl bg-white p-10 text-center shadow">
+
+            <h2 class="text-xl font-semibold">
+
+                No Courses Found
+
+            </h2>
+
+            <p class="mt-3 text-slate-500">
+
+                Create your first course.
+
+            </p>
+
+        </div>
+
+    }
+
+    <!-- Course Cards -->
+
+    @else {
+
+        <div class="grid gap-6">
+
+            @for(course of courses(); track course.id) {
+
+                <div
+                    class="rounded-2xl bg-white p-6 shadow border border-slate-200">
+
+                    <div class="flex justify-between items-start">
+
+                        <div>
+
+                            <h2 class="text-2xl font-semibold">
+
+                                {{ course.title }}
+
+                            </h2>
+
+                            <p class="mt-2 text-slate-500">
+
+                                {{ course.description }}
+
+                            </p>
+
+                            <div class="mt-4 flex gap-3">
+
+                                <span
+                                    class="rounded-full bg-indigo-100 px-3 py-1 text-sm text-indigo-700">
+
+                                    {{ course.category }}
+
+                                </span>
+
+                                <span
+                                    class="rounded-full bg-slate-100 px-3 py-1 text-sm">
+
+                                    {{ course.code }}
+
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                        <div class="flex gap-3">
+
+    <button
+        (click)="editCourse(course.id)"
+        class="rounded-lg bg-indigo-600 px-4 py-2 text-white">
+
+        Edit
+
+    </button>
+
+    <button
+        (click)="viewStudents(course.id)"
+        class="rounded-lg bg-slate-700 px-4 py-2 text-white">
+
+        Students
+
+    </button>
+
+    <button
+        (click)="deleteCourse(course.id)"
+        class="rounded-lg bg-red-600 px-4 py-2 text-white">
+
+        Delete
+
+    </button>
+
+</div>
+
+                    </div>
+
+                </div>
+
+            }
+
+        </div>
+
+    }
+
+</div>

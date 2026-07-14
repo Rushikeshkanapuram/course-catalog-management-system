@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+/* Global Styles */
+
+html,
+body{
+    height:100%;
+}
+
+body{
+
+    margin:0;
+
+    font-family:Inter,
+                 "Segoe UI",
+                 sans-serif;
+
+    background:#F8FAFC;
+}

@@ -1,0 +1,50 @@
+.login-container{
+
+    width:100%;
+    height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:#f8fafc;
+}
+
+mat-card{
+
+    width:420px;
+
+    padding:32px;
+
+    border-radius:18px;
+}
+
+form{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:16px;
+
+    margin-top:20px;
+}
+
+button{
+
+    height:48px;
+}
+
+h1{
+
+    text-align:center;
+}
+
+h2{
+
+    text-align:center;
+
+    color:gray;
+}

@@ -1,0 +1,125 @@
+<div class="space-y-8">
+
+    <div>
+
+        <h1 class="text-4xl font-bold text-slate-800">
+
+            Students
+
+        </h1>
+
+        <p class="mt-2 text-slate-500">
+
+            View students enrolled in your courses.
+
+        </p>
+
+    </div>
+
+    @if(loading()) {
+
+        <div class="rounded-xl bg-white p-8 shadow">
+
+            Loading...
+
+        </div>
+
+    }
+
+    @else {
+
+        @for(course of courseGroups(); track course.courseId) {
+
+        <div class="rounded-2xl bg-white shadow border border-slate-200">
+
+            <div class="border-b p-6">
+
+                <h2 class="text-2xl font-semibold">
+
+                    {{ course.courseTitle }}
+
+                </h2>
+
+            </div>
+
+            @if(course.students.length === 0) {
+
+            <div class="p-6 text-slate-500">
+
+                No students enrolled.
+
+            </div>
+
+            }
+
+            @else {
+
+            <table class="min-w-full">
+
+                <thead class="bg-slate-100">
+
+                    <tr>
+
+                        <th class="px-6 py-4 text-left">
+
+                            Name
+
+                        </th>
+
+                        <th class="px-6 py-4 text-left">
+
+                            Email
+
+                        </th>
+
+                        <th class="px-6 py-4 text-left">
+
+                            Enrollment Date
+
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    @for(student of course.students; track student.studentId) {
+
+                    <tr class="border-t">
+
+                        <td class="px-6 py-4">
+
+                            {{ student.fullName }}
+
+                        </td>
+
+                        <td class="px-6 py-4">
+
+                            {{ student.email }}
+
+                        </td>
+
+                        <td class="px-6 py-4">
+
+                            {{ student.enrollmentDate | date }}
+
+                        </td>
+
+                    </tr>
+
+                    }
+
+                </tbody>
+
+            </table>
+
+            }
+
+        </div>
+
+        }
+
+    }
+
+</div>

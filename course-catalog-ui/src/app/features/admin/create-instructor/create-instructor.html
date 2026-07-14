@@ -1,0 +1,51 @@
+<div class="max-w-2xl mx-auto">
+
+    <div class="rounded-2xl bg-white p-8 shadow">
+
+        <h1 class="text-3xl font-bold">
+
+            Create Instructor
+
+        </h1>
+
+        <form
+            [formGroup]="instructorForm"
+            (ngSubmit)="createInstructor()"
+            class="space-y-6 mt-8">
+
+            <input
+                type="text"
+                placeholder="First Name"
+                formControlName="firstName"
+                class="w-full rounded-lg border p-3">
+
+            <input
+                type="text"
+                placeholder="Last Name"
+                formControlName="lastName"
+                class="w-full rounded-lg border p-3">
+
+            <input
+                type="email"
+                placeholder="Email"
+                formControlName="email"
+                class="w-full rounded-lg border p-3">
+
+            <input
+                type="password"
+                placeholder="Password"
+                formControlName="password"
+                class="w-full rounded-lg border p-3">
+
+            <button
+                class="rounded-xl bg-indigo-600 px-6 py-3 text-white">
+
+                Create Instructor
+
+            </button>
+
+        </form>
+
+    </div>
+
+</div>

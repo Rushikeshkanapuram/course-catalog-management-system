@@ -1,0 +1,109 @@
+<div class="space-y-8">
+
+    <div class="flex justify-between items-center">
+
+        <div>
+
+            <h1 class="text-4xl font-bold text-slate-800">
+
+                Users
+
+            </h1>
+
+            <p class="mt-2 text-slate-500">
+
+                Manage all users in the system.
+
+            </p>
+
+        </div>
+
+        <button
+            (click)="createInstructor()"
+            class="rounded-xl bg-indigo-600 px-6 py-3 text-white hover:bg-indigo-700">
+
+            + Create Instructor
+
+        </button>
+
+    </div>
+
+    @if(loading()) {
+
+        <div class="rounded-xl bg-white p-8 shadow">
+
+            Loading users...
+
+        </div>
+
+    }
+
+    @else {
+
+        <div class="overflow-hidden rounded-2xl bg-white shadow">
+
+            <table class="min-w-full">
+
+                <thead class="bg-slate-100">
+
+                    <tr>
+
+                        <th class="px-6 py-4 text-left">
+
+                            Name
+
+                        </th>
+
+                        <th class="px-6 py-4 text-left">
+
+                            Email
+
+                        </th>
+
+                        <th class="px-6 py-4 text-left">
+
+                            Role
+
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    @for(user of users(); track user.id){
+
+                    <tr class="border-t">
+
+                        <td class="px-6 py-4">
+
+                            {{ user.fullName }}
+
+                        </td>
+
+                        <td class="px-6 py-4">
+
+                            {{ user.email }}
+
+                        </td>
+
+                        <td class="px-6 py-4">
+
+                            {{ user.role }}
+
+                        </td>
+
+                    </tr>
+
+                    }
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    }
+
+</div>

@@ -1,0 +1,117 @@
+<div class="space-y-8">
+
+    <div>
+
+        <h1 class="text-4xl font-bold text-slate-800">
+
+            Admin Dashboard
+
+        </h1>
+
+        <p class="mt-2 text-slate-500">
+
+            System overview and statistics.
+
+        </p>
+
+    </div>
+
+    @if(loading()) {
+
+        <div class="rounded-xl bg-white p-8 shadow">
+
+            Loading...
+
+        </div>
+
+    }
+
+    @else if(dashboard()) {
+
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+
+            <div class="rounded-2xl bg-white p-6 shadow border border-slate-200">
+
+                <p class="text-slate-500">
+
+                    Total Users
+
+                </p>
+
+                <h2 class="mt-4 text-5xl font-bold text-indigo-600">
+
+                    {{ dashboard()!.totalUsers }}
+
+                </h2>
+
+            </div>
+
+            <div class="rounded-2xl bg-white p-6 shadow border border-slate-200">
+
+                <p class="text-slate-500">
+
+                    Total Students
+
+                </p>
+
+                <h2 class="mt-4 text-5xl font-bold text-indigo-600">
+
+                    {{ dashboard()!.totalStudents }}
+
+                </h2>
+
+            </div>
+
+            <div class="rounded-2xl bg-white p-6 shadow border border-slate-200">
+
+                <p class="text-slate-500">
+
+                    Total Instructors
+
+                </p>
+
+                <h2 class="mt-4 text-5xl font-bold text-indigo-600">
+
+                    {{ dashboard()!.totalInstructors }}
+
+                </h2>
+
+            </div>
+
+            <div class="rounded-2xl bg-white p-6 shadow border border-slate-200">
+
+                <p class="text-slate-500">
+
+                    Total Courses
+
+                </p>
+
+                <h2 class="mt-4 text-5xl font-bold text-indigo-600">
+
+                    {{ dashboard()!.totalCourses }}
+
+                </h2>
+
+            </div>
+
+            <div class="rounded-2xl bg-white p-6 shadow border border-slate-200">
+
+                <p class="text-slate-500">
+
+                    Total Enrollments
+
+                </p>
+
+                <h2 class="mt-4 text-5xl font-bold text-indigo-600">
+
+                    {{ dashboard()!.totalEnrollments }}
+
+                </h2>
+
+            </div>
+
+        </div>
+
+    }
+
+</div>
